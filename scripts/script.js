@@ -17,7 +17,7 @@ async function getCurrentWeather(city, apiKey = "6eb0147731f004ad68262afb3ba2d28
             document.querySelector('.temp').innerHTML = `${Math.round(data.main.temp)} °C`;
             document.querySelector(".wind p").innerHTML = `${Math.round(data.wind.speed)} K/h`;
             document.querySelector(".humidity p").innerHTML = `${data.main.humidity} %`
-            document.querySelector("weather-icon").src = `images/${data.weather[0].main}.png`;
+            document.querySelector(".weather-icon").src = `images/${data.weather[0].main}.png`;
 
 
         } else {
