@@ -10,8 +10,6 @@ async function getCurrentWeather(city, apiKey = "6eb0147731f004ad68262afb3ba2d28
         if (response.ok) {
             let data = await response.json();
             console.log("weather info fetched")
-            const { main: weather } = data.weather[0];
-            const { speed: windSpeed } = data.wind
             // updating page data
             document.querySelector(".weather").style.display = 'block';
 
@@ -19,7 +17,7 @@ async function getCurrentWeather(city, apiKey = "6eb0147731f004ad68262afb3ba2d28
             document.querySelector('.temp').innerHTML = `${Math.round(data.main.temp)} °C`;
             document.querySelector(".wind p").innerHTML = `${Math.round(data.wind.speed)} K/h`;
             document.querySelector(".humidity p").innerHTML = `${data.main.humidity} %`
-            document.querySelector("weather-icon").src = `images/${weather}.png`;
+            document.querySelector("weather-icon").src = `images/${data.weather[0].main}.png`;
 
 
         } else {
@@ -28,7 +26,7 @@ async function getCurrentWeather(city, apiKey = "6eb0147731f004ad68262afb3ba2d28
         }
     }
 
-    const response = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=3&appid=${apiKey}`);
+    const response = await fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=3&appid=${apiKey}`);
     if (response.ok) {
         console.log("Location data fetched")
     } else {
