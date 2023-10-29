@@ -66,7 +66,7 @@
                     document.querySelector('.temp').innerHTML = `${Math.round(data.main.temp)} °C`;
                     document.querySelector(".wind p").innerHTML = `${Math.round(data.wind.speed)} K/h`;
                     document.querySelector(".humidity p").innerHTML = `${data.main.humidity} %`
-                    document.querySelector(".weather-icon").src = `images/${weather}.png`;
+                    document.querySelector(".weather-icon").src = `images/${data.weather[0].main}.png`;
 
 
                 } else {
